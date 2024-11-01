@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" th:replace="admin/adbase::layout(~{::section})">
+
+<head>
+</head>
+
+<body>
+	<section style="overflow-y: auto;">
+		<div class="container">
+			<div class="row shadow rounded-3 m-3 p-3">
+				<div class="col-sm-6">
+					<img src="/images/books.jpg" class="w-100 align-middle" />
+				</div>
+				<div class="col-sm-6">
+					<div th:if="${msg}">
+						<p th:text="${msg}" class="alert alert-success alert-dismissible"></p>
+					</div>
+					<form class="form-group" th:object="${dto}" method="post" enctype="multipart/form-data">
+						<div class="row g-2">
+							<div class="col-sm-12">
+								<label for="program" class="form-label">Program</label>
+								<select class="form-select" th:field="${dto.program}" id="program" required>
+									<option value="">Choose...</option>
+									<option value="bca">BCA</option>
+									<option value="mca">MCA</option>
+									<option value="bba">BBA</option>
+									<option value="mba">MBA</option>
+									<option value="bsc">B.Sc</option>
+									<option value="msc">M.Sc</option>
+								</select>
+							</div>
+							<div class="col-sm-12">
+								<label for="branch" class="form-label">Branch</label>
+								<select class="form-select" th:field="${dto.branch}" id="branch" required>
+									<option value="">Choose...</option>
+									<option value="cs">Computer Science</option>
+									<option value="it">Information Technology</option>
+									<option value="ec">Electronics & Communication</option>
+									<option value="me">Mechanical Engineering</option>
+									<option value="ce">Civil Engineering</option>
+								</select>
+							</div>
+							<div class="col-sm-12">
+								<label for="year" class="form-label">Year</label>
+								<select class="form-select" th:field="${dto.year}" id="year" required>
+									<option value="">Choose...</option>
+									<option value="1">1st Year</option>
+									<option value="2">2nd Year</option>
+									<option value="3">3rd Year</option>
+									<option value="4">4th Year</option>
+								</select>
+							</div>
+							<div class="col-sm-12">
+								<label for="materialtype" class="form-label">Enter materialtype</label>
+								<select class="form-select" th:field="${dto.materialtype}" id="materialtype" required>
+									<option value="">Choose...</option>
+									<option value="smat">Study Material</option>
+									<option value="assign">Assignment</option>
+								</select>
+							</div>
+							<div class="col-sm-12">
+								<label for="subject" class="form-label">Enter subject</label>
+								<input type="text" id="subject" name="subject" class="form-control"
+									th:field="${dto.subject}" required />
+							</div>
+							<div class="col-sm-12">
+								<label for="topic" class="form-label">Enter topic</label>
+								<input type="text" id="topic" name="topic" class="form-control" th:field="${dto.topic}"
+									required />
+							</div>
+							<div class="col-sm-12">
+								<label for="file" class="form-label">Upload file</label>
+								<input type="file" id="file" name="file" class="form-control" th:field="${dto.filedata}"
+									required />
+							</div>
+							<div class="col-sm-12">
+								<button type="submit" class="btn btn-primary w-100">Submit</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

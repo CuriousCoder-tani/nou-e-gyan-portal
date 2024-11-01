@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" th:replace="admin/adbase::layout(~{::section})">
+
+<head>
+</head>
+
+<body>
+	<section>
+		<h1>Enquiry Management</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Gender</th>
+					<th>contact no</th>
+					<th>Email Address</th>
+					<th>Enquiry Text</th>
+					<th>Enquiry Date</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="e:${enquiry}" class="shadow-sm mt-2">
+					<td th:text="${e.name}"></td>
+					<td th:text="${e.gender}"></td>
+					<td th:text="${e.contactno}"></td>
+					<td th:text="${e.emailaddress}"></td>
+					<td th:text="${e.enquirytext}"></td>
+					<td th:text="${e.enquirydate}"></td>
+					<td>
+						<a th:href="@{viewenquiry/delete(id=${e.id})}">
+							<button class="btn btn-danger" onclick="return confirm('do you want to delete?')">
+								Delete
+							</button>
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</body>
+
+</html>

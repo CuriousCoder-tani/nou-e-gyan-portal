@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" th:replace="admin/adbase::layout(~{::section})">
+
+<head>
+</head>
+
+<body>
+	<section>
+		<div class="row mt-2 justify-content-around" style="margin:0px auto;">
+			<div class="col-sm-3 mt-5 mt-lg-0 p-4">
+				<div class="card_outer">
+					<div class="card_box p-3 ">
+						<div class="card_content mb-3 ">
+							<span class="fa-solid fa-user-graduate mt-4"></span>
+							<h2 th:text="${stdcount}"></h2>
+							<p class="txt">
+								Total Registered Student
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3 mt-5 mt-lg-0 p-4">
+				<div class="card_outer">
+					<div class="card_box p-3 ">
+						<div class="card_content mb-3 ">
+							<span class="fa-solid fa-comment mt-4"></span>
+							<h2 th:text="${enqcount}"></h2>
+							<p class="txt">
+								Total Enquiry
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3 mt-5 mt-lg-0 p-4">
+				<div class="card_outer">
+					<div class="card_box p-3 ">
+						<div class="card_content mb-3 ">
+							<span class="fa-solid fa-clipboard-user mt-4"></span>
+							<h2 th:text="${rescount}"></h2>
+							<p class="txt">
+								Total Responses
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3 mt-5 mt-lg-0 p-4">
+				<div class="card_outer">
+					<div class="card_box p-3 ">
+						<div class="card_content mb-3 ">
+							<span class="fa-solid fa-book mt-4"></span>
+							<h2 th:text="${matcount}"></h2>
+							<p class="txt">
+								Total Material Count
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-7 mt-5 mt-lg-0 p-4">
+				<div class="form-container">
+					<h2>News Management</h2>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>News</th>
+								<th>Date</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="n:${news}" class="shadow-sm mt-2">
+								<td th:text="${n.newstext}"></td>
+								<td th:text="${n.newsdate}"></td>
+								<td>
+									<a th:href="@{adhome/delete(nid=${n.nid})}">
+										<button class="btn-close" aria-label="Close"
+											onclick="return confirm('do you want to delete?')">
+										</button>
+									</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="col-sm-5 mt-5 mt-lg-0 p-4">
+				<div class="form-container">
+					<form class="form-group" th:object="${dto}" method="post">
+						<div class="row g-3">
+							<div class="col-sm-12">
+								<label for="news" class="form-label">
+									<h2 class="text-center mb-4">Upload News</h2>
+								</label>
+								<textarea class="form-control" id="news" th:field="${dto.newstext}" required></textarea>
+							</div>
+							<div class="col-sm-12">
+								<button type="submit" class="btn btn-primary w-100">Submit</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

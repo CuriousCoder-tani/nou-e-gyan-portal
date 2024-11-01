@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" th:replace="base::layout(~{::section})">
+
+<head>
+</head>
+
+<body>
+	<section>
+		<div class="container">
+			<div class="form-container">
+				<h2 class="text-center mb-4">Login</h2>
+				<div th:if="${msg}">
+					<p th:text="${msg}" class="alert alert-success alert-dismissible"></p>
+				</div>
+				<form class="form-group" th:object="${dto}" method="post">
+					<div class="row g-3">
+						<div class="col-sm-12">
+							<label for="rollno" class="form-label">Roll Number</label>
+							<input type="number" class="form-control" id="rollno" th:field="${dto.rollno}" required>
+						</div>
+						<div class="col-sm-12">
+							<label for="password" class="form-label">Password</label>
+							<input type="password" class="form-control" id="password" th:field="${dto.password}"
+								required>
+						</div>
+						<div class="col-sm-12">
+							<button type="submit" class="btn btn-primary w-100">Login</button>
+						</div>
+						<hr />
+						<div class="col-sm-12 text-dark">
+							<div class="row">
+								<div class="col-sm-6">
+									<a href="/home"><- Return to home page</a>
+								</div>
+								<div class="col-sm-6">
+									<a href="/registration">Not Registered? Register Now</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

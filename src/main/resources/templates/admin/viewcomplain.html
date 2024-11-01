@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" th:replace="admin/adbase::layout(~{::section})">
+
+<head>
+</head>
+
+<body>
+	<section>
+		<h1>Complain Management</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Enrollment No</th>
+					<th>Name</th>
+					<th>contact no</th>
+					<th>Email Address</th>
+					<th>Complain subject</th>
+					<th>Complain Test</th>
+					<th>Complain Date</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="c:${complain}" class="shadow-sm mt-2">
+					<td th:text="${c.rollno}"></td>
+					<td th:text="${c.name}"></td>
+					<td th:text="${c.contactno}"></td>
+					<td th:text="${c.emailaddress}"></td>
+					<td th:text="${c.responsesubject}"></td>
+					<td th:text="${c.responsetext}"></td>
+					<td th:text="${c.responsedate}"></td>
+					<td>
+						<a th:href="@{viewcomplain/delete(id=${c.id})}">
+							<button class="btn btn-danger" onclick="return confirm('do you want to delete?')">
+								Delete
+							</button>
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</body>
+
+</html>

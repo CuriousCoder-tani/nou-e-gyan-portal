@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" th:replace="base::layout(~{::section})">
+
+<head>
+</head>
+
+<body>
+	<section>
+		<div class="row">
+			<div class="container">
+				<div class="form-container">
+					<h2 class="text-center mb-4">NOU E-Gyan Portal Registration</h2>
+					<div th:if="${message}">
+						<p th:text="${message}" class="alert alert-success alert-dismissible"></p>
+					</div>
+					<form class="form-group" th:object="${dto}" method="post">
+						<div class="row g-3">
+							<div class="col-sm-12">
+								<label for="rollno" class="form-label">Roll Number</label>
+								<input type="number" th:field="${dto.rollno}" class="form-control" id="rollno" required>
+							</div>
+							<div class="col-sm-12">
+								<label for="Name" class="form-label">Name</label>
+								<input type="text" th:field="${dto.name}" class="form-control" id="name" required>
+							</div>
+							<div class="col-sm-6">
+								<label for="fname" class="form-label">Father's Name</label>
+								<input type="text" th:field="${dto.fname}" class="form-control" id="fname" required>
+							</div>
+							<div class="col-sm-6">
+								<label for="mname" class="form-label">Mother's Name</label>
+								<input type="text" th:field="${dto.mname}" class="form-control" id="mname" required>
+							</div>
+							<div class="col-sm-12">
+								<label for="gender" class="form-label">Gender</label>
+								<input type="radio" value="male" required th:field="${dto.gender}" />Male
+								<input type="radio" value="female" required th:field="${dto.gender}" />Female
+							</div>
+							<div class="col-sm-12">
+								<label for="address" class="form-label">Address</label>
+								<input type="text" th:field="${dto.address}" class="form-control" id="address" required>
+							</div>
+							<div class="col-md-4">
+								<label for="program" class="form-label">Program</label>
+								<select class="form-select" th:field="${dto.program}" id="program" required>
+									<option value="">Choose...</option>
+									<option value="bca">BCA</option>
+									<option value="mca">MCA</option>
+									<option value="bba">BBA</option>
+									<option value="mba">MBA</option>
+									<option value="bsc">B.Sc</option>
+									<option value="msc">M.Sc</option>
+								</select>
+							</div>
+							<div class="col-md-4">
+								<label for="branch" class="form-label">Branch</label>
+								<select class="form-select" th:field="${dto.branch}" id="branch" required>
+									<option value="">Choose...</option>
+									<option value="cs">Computer Science</option>
+									<option value="it">Information Technology</option>
+									<option value="ec">Electronics & Communication</option>
+									<option value="me">Mechanical Engineering</option>
+									<option value="ce">Civil Engineering</option>
+								</select>
+							</div>
+							<div class="col-md-4">
+								<label for="year" class="form-label">Year</label>
+								<select class="form-select" th:field="${dto.year}" id="year" required>
+									<option value="">Choose...</option>
+									<option value="1">1st Year</option>
+									<option value="2">2nd Year</option>
+									<option value="3">3rd Year</option>
+									<option value="4">4th Year</option>
+								</select>
+							</div>
+							<div class="col-sm-12">
+								<label for="contactno" class="form-label">Contact Number</label>
+								<input type="tel" th:field="${dto.contactno}" class="form-control" id="contactno"
+									required>
+							</div>
+							<div class="col-sm-12">
+								<label for="emailaddress" class="form-label">Email Address</label>
+								<input type="email" th:field="${dto.emailaddress}" class="form-control"
+									id="emailaddress" required>
+							</div>
+							<div class="col-sm-12">
+								<label for="password" class="form-label">Password</label>
+								<input type="password" th:field="${dto.password}" class="form-control" id="password"
+									required>
+							</div>
+							<div class="col-sm-12">
+								<button type="submit" class="btn btn-primary w-100">Register</button>
+							</div>
+							<hr/>
+							<div class="col-sm-12 text-center">
+								<a href="/studentlogin">Return to Login Page</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

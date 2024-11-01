@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" th:replace="admin/adbase::layout(~{::section})">
+
+<head>
+</head>
+
+<body>
+	<section>
+		<h1>Feedback Management</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Enrollment No</th>
+					<th>Name</th>
+					<th>contact no</th>
+					<th>Email Address</th>
+					<th>Feedback subject</th>
+					<th>Feedback Test</th>
+					<th>Feedback Date</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="f:${feedback}"  class="shadow-sm mt-2">
+					<td th:text="${f.rollno}"></td>
+					<td th:text="${f.name}"></td>
+					<td th:text="${f.contactno}"></td>
+					<td th:text="${f.emailaddress}"></td>
+					<td th:text="${f.responsesubject}"></td>
+					<td th:text="${f.responsetext}"></td>
+					<td th:text="${f.responsedate}"></td>
+					<td>
+						<a th:href="@{viewfeedback/delete(id=${f.id})}">
+						<button class="btn btn-danger" onclick="return confirm('do you want to delete?')">
+							Delete
+						</button>
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</body>
+
+</html>

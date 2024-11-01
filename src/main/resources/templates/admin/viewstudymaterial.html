@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" th:replace="admin/adbase::layout(~{::section})">
+
+<head>
+</head>
+
+<body>
+	<section>
+		<h1>Study Material</h1>
+		<div style="overflow-x: scroll;">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>program</th>
+					<th>Branch</th>
+					<th>Year</th>
+					<th>MaterialType</th>
+					<th>Subject</th>
+					<th>Topic</th>
+					<th>File Name</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="m:${mlist}"  class="shadow-sm mt-2">
+					<td th:text="${m.program}"></td>
+					<td th:text="${m.branch}"></td>
+					<td th:text="${m.year}"></td>
+					<td th:text="${m.materialtype}"></td>
+					<td th:text="${m.subject}"></td>
+					<td th:text="${m.topic}"></td>
+					<td>
+						<a th:href="@{'/mat/'+${m.filename}}" download><span th:text="${m.filename}"></span> </a>
+					</td>
+					<td>
+						<a th:href="@{viewstudymaterial/deletematerial(id=${m.id})}">
+							<button class="btn btn-danger" onclick="return confirm('do you want to delete?')">
+								Delete
+							</button>
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</section>
+</body>
+
+</html>

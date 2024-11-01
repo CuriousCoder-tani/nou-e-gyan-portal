@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" th:replace="student/studentbase::layout(~{::section})">
+
+<head>
+</head>
+
+<body>
+	<section>
+		<h1>Study Material</h1>
+		<div style="overflow-x: auto;">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Subject</th>
+					<th>Topic</th>
+					<th>File Name</th>
+					<th>Posted Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="m:${mlist}" class="shadow-sm mt-2">
+					<td th:text="${m.subject}"></td>
+					<td th:text="${m.topic}"></td>
+					<td>
+						<a th:href="@{'/mat/'+${m.filename}}" download><i class="fa-solid fa-download fs-3"></i> </a>
+					</td>
+					<td th:text="${m.posteddate}"></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</section>
+</body>
+
+</html>

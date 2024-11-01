@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en" th:replace="student/studentbase::layout(~{::section})">
+
+<head>
+    <!-- Include necessary CSS and JS files here -->
+</head>
+
+<body>
+    <section>
+        <div class="row">
+            <div class="col-sm-7">
+                <tr class="row my-3 shadow rounded-2" th:each="q : ${questions}">
+                    <div class="box shadow">
+                        <span class="qname col-sm-6 text-start" th:text="${q.postedby}"></span>
+                        <span class="time col-sm-6 text-end" th:text="${q.posteddate}"></span>
+                        <td class="col-sm-12" th:text="${q.question}"></td>
+                    </div>
+                    <div class="answers row" th:each="a : ${answers}">
+                        <span class="qname col-sm-6 text-start" th:text="${a.answeredby}"></span>
+                        <span class="time col-sm-6 text-end" th:text="${a.posteddate}"></span>
+                        <td class="col-sm-12" th:text="${a.answer}"></td>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Give Answer
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <form class="form-group" th:object="${answerDto}" th:action="@{/student/postAnswer}" method="post">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Give Answer</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="hidden" th:field="${answerDto.questionId}" value="[[${q.qid}]]"/>
+                                        <div class="mb-3">
+                                            <textarea class="form-control" th:field="${answerDto.answer}" rows="3" placeholder="Write your answer here..."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </tr>
+            </div>
+            <div class="col-sm-5">
+                <div class="rounded-2 shadow p-3 mb-4">
+                    <form class="form-group" th:object="${questionDto}" th:action="@{/student/postQuestion}" method="post">
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="3" th:field="${questionDto.question}" placeholder="Ask a question..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Post Question</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
+
+<div class="answers row" th:each="a : ${ans}" th:if="${a.qid == q.qid}">
+						<span class="qname col-sm-6 text-start" th:text="${a.answeredby}"></span>
+						<span class="time col-sm-6 text-end" th:text="${a.posteddate}"></span>
+						<div class="col-sm-12" th:text="${a.answer}"></div>
+					</div>
+
+					<!-- Button trigger modal -->
+					<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+						th:data-bs-target="'#exampleModal' + ${q.qid}">
+						Give Answer
+					</button>
+
+					<!-- Modal -->
+					<div class="modal fade" th:id="'exampleModal' + ${q.qid}" tabindex="-1"
+						aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered">
+							<div class="modal-content">
+								<form class="form-group" th:action="@{/student/giveanswer}" method="post">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="exampleModalLabel">Give Answer</h1>
+										<button type="button" class="btn-close" data-bs-dismiss="modal"[]
+											aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										<div class="mb-3">
+											<textarea class="form-control" name="answer" rows="3"
+												placeholder="Write your answer here..."></textarea>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">Close</button>
+										<a th:href="@{student/giveanswer(qid=${q.qid})}">
+											<button type="submit" class="btn btn-primary">Submit</button>
+										</a>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+

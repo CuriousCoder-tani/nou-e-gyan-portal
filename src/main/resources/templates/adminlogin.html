@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" th:replace="base::layout(~{::section})">
+
+<head>
+</head>
+
+<body>
+	<section>
+		<div class="row">
+			<div class="container">
+				<div class="form-container">
+					<h2 class="text-center mb-4">Admin Login</h2>
+					<div th:if="${msg}">
+						<p th:text="${msg}" class="alert alert-success alert-dismissible"></p>
+					</div>
+					<form class="form-group" th:object="${dto}" method="post">
+						<div class="row g-3">
+							<div class="col-sm-12">
+								<label for="rollno" class="form-label">Admin Id</label>
+								<input type="text" class="form-control" id="rollno" th:field="${dto.adminid}"
+									required>
+							</div>
+							<div class="col-sm-12">
+								<label for="password" class="form-label">Password</label>
+								<input type="password" class="form-control" id="password" th:field="${dto.password}"
+									required>
+							</div>
+							<div class="col-sm-12">
+								<button type="submit" class="btn btn-primary w-100">Login</button>
+							</div>
+							<hr />
+							<div class="col-sm-12 text-dark">
+								<a href="/home"><- Return to home page</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>
