@@ -1,14 +1,16 @@
 package com.lmsapp.lms.dto;
 
+import com.lmsapp.lms.model.Question;
+
 public class AnswerDto {
-	private int qid;
+	private Question qid;
 	private String answer;
 	private String posteddate;
 	private String answeredby;
-	public int getQid() {
+	public Question getQid() {
 		return qid;
 	}
-	public void setQid(int qid) {
+	public void setQid(Question qid) {
 		this.qid = qid;
 	}
 	public String getAnswer() {
@@ -28,7 +30,5 @@ public class AnswerDto {
 	}
 	public void setAnsweredby(String answeredby) {
 		this.answeredby = answeredby;
-	}
-	
-	
+	}	
 }

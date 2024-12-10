@@ -1,5 +1,5 @@
 package com.lmsapp.lms.controller;
-
+ 
 import com.lmsapp.lms.api.SmsSender;
 import com.lmsapp.lms.dto.AdminLoginDto;
 import com.lmsapp.lms.dto.EnquiryDto;
@@ -125,9 +125,7 @@ public class MainController {
          stu.setBranch(studentDto.getBranch());
          stu.setContactno(studentDto.getContactno());
          stu.setEmailaddress(studentDto.getEmailaddress());
-         stu.setFname(studentDto.getFname());
          stu.setGender(studentDto.getGender());
-         stu.setMname(studentDto.getMname());
          stu.setPassword(studentDto.getPassword());
          stu.setProgram(studentDto.getProgram());
          stu.setYear(studentDto.getYear());

@@ -5,8 +5,12 @@
 </head>
 
 <body>
-	<section>
+	<section class="contact">
 		<div class="container">
+			<div class="section-title">
+				<h2>Contact</h2>
+				<p>Contact <span>Us</span></p>
+			</div>
 			<div class="form-container">
 				<h1 class="text-center">Enquiry Form</h1>
 				<div th:if="${message}">
@@ -44,5 +48,98 @@
 			</div>
 		</div>
 	</section>
+	<!-- End Contact Section -->
+	<section id="contact" class="contact pt-0">
+		<div class="container info">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="address d-flex align-items-center justify-content-center">
+						<i class="fa fa-map-marker m-2"></i>
+					</div>
+					<div class="info1">
+						<h4 class="mt-2">Location:</h4>
+						<p>
+							2nd/3rd Floor, Biscomaun<br />
+							Gandhi Maidan, Patna</p>
+
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="address d-flex align-items-center justify-content-center">
+						<i class="fa fa-envelope m-2"></i>
+					</div>
+					<div class="info1">
+						<h4 class="mt-2">Email:</h4>
+						<p>
+							<a href="mailto:nouegyanhelp@gmail.com"
+								style="color: #2a2c39; text-decoration: none; ">nouegyanhelp@gmail.com</a>
+						</p>
+
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="address d-flex align-items-center justify-content-center">
+						<i class="fa fa-phone m-2"></i>
+					</div>
+					<div class="info1">
+						<h4 class="mt-2">Phone:</h4>
+						<p>
+							0612-2201013<br />
+							0612-2206916 </p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const form = document.querySelector('form');
+
+				form.addEventListener('submit', (event) => {
+					let isValid = true;
+					let errorMessage = '';
+
+					// Name Validation
+					const name = document.getElementById('Name').value.trim();
+					if (name === '') {
+						isValid = false;
+						errorMessage += 'Name is required.\n';
+					} else if (!/^[a-zA-Z ]{3,15}$/.test(name)) {
+						isValid = false;
+						errorMessage += 'Name can only contain letters and spaces.\n';
+					}
+
+
+					// Contact Number Validation
+					const contactNo = document.getElementById('contactno').value.trim();
+					if (contactNo === '') {
+						isValid = false;
+						errorMessage += 'Contact Number is required.\n';
+					} else if (!/^[0-9]{10}$/.test(contactNo)) {
+						isValid = false;
+						errorMessage += 'Contact Number must be 10 digits.\n';
+					}
+
+					// Email Validation
+					const email = document.getElementById('emailaddress').value.trim();
+					if (email === '') {
+						isValid = false;
+						errorMessage += 'Email Address is required.\n';
+					} else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,3}$/.test(email)) {
+						isValid = false;
+						errorMessage += 'Invalid Email Address format.\n';
+					}
+
+
+					if (!isValid) {
+						alert(errorMessage);
+						event.preventDefault();
+					}
+				});
+			});
+
+		</script>
+	</section>
 </body>
+
 </html>

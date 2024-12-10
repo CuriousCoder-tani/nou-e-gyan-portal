@@ -1,0 +1,639 @@
+	===========================================
+		Lecture 1 dated 05-08-2024
+	===========================================
+
+
+Pre-requisites for Java programming:-
+
+Keywords:- Keywords are reserved words. Meaning of keywords is pre-defined into compilers. In Java programming language there are 50 keywords. For eg- 
+abstract,boolean,break,byte,case,catch,char,class,continue,default,
+do,double,each,else,extends,final,finally,float,for,if,
+implement,import,int,interface,long,main,native,new,private,protected,
+public,return,short,static,String,switch,synchronised,throw,throws,transient,
+try,void,volatile,while,
+....etc.  44/50
+
+Class-Class is Blueprint of object. Class is container of variables and methods.
+
+Package- Package is the collection of classes,interfaces and sub-packages.
+
+Variables- Variables are value containers,they create space in memory.
+
+
+________________________________________________________________
+
+class p1{
+	public static void main(String [] args)
+	{
+		System.out.println("msg");
+	}
+}
+
+===========================================================================================
+	
+	Private,protected,public-> Access modifier
+	Private- Can't be directly accessed.
+	Protected- 
+	Public- Can be directly accessed.(within or outside of class)
+
+	Static- Modifier( Means if we use static(in creation of method) then there is no need of object to call that method. It will be called directly) Main is always 	static.
+
+	void- no return of value in that method.
+	
+	main()- Pre-defined method name.
+
+	string [] args- To take command line input.
+
+
+________________________________________________________________
+
+How to take input from user in java?
+
+Scanner- Scanner is a class available in java.util package. Object of scanner class is used to take input from user. 
+
+Classname objectname =new classname();  <- Object of class
+
+import java.util.*;
+Scanner s=new Scanner(System.in);
+
+int a;
+a=s.nextInt(); 		<--  (for interger input)
+
+float b;
+b=s.nextFloat();  	<-- for float input
+
+double c;
+c=s.nextDouble();	<--for double input
+
+string name;
+name=s.nextLine(); 	<-- for string input
+name=s.next();		<-- for one word string input
+
+__________________________________________________________________________________________________________
+
+	======================================
+		Lecture 2 dated 06-08-2024
+	======================================
+
+System.out.printf("Volume=%lf\n",v);	<-- Using prinf function
+-----------------------------------------------------
+
+Naming Convention:
+
+Java programming language follows camel case.
+Naming convention for class, interface and abstract class:-
+In Java each word in name of class,interface or abstract class must be capital.
+ex-	Scanner
+	BufferedReader
+	NullPointerException
+	ClassNotFoundException
+	ArrayIndexOutOfBoundsException
+-----------------------------------------------------
+
+Naming Convention for method in Java:
+
+In java first letter of method must be small. After first word letter of each word must be capital.
+Ex:	next();
+	nextInt();
+	equalsIgnoreCase();
+-------------------------------------------------------
+
+Decision Controls in Java:
+
+If you want to execute code based on some condition,then you can use a decision control.
+
+1. if
+	-if is a keyword which works as decision control. We attach a condition with if statement. If given condition is true then if block code will get executed and if given condition is false them it do nothing.
+	Syntax:	
+		if(condition){         
+		//code
+		}
+2. if-else
+	-if-else is variation of if statement. We attach a condition with if statement. If given condition is true then if block code is executed and
+	if a given condition is false then else block code is executed.
+	Syntax: 
+		if(condition){
+		//if block code
+		}
+		else{
+		//else block code
+		}
+3. ladder if-else
+	-If you have many conditions and you want to execute code based on those conditions then you can use ladder if-else.
+	Syntax:	
+		if(condition1) {
+		//code 1
+		}
+		else if(condition 1) {
+		//code 2
+		}
+		else {		
+		//code 3
+		}
+
+4. Switch
+	- Switch is a keyword which works as case control. It is used to create a menu based program. 
+	Syntax :
+		switch(expression) {		<- expression:- (int or char or string)
+			case 1: //code 1
+				break;
+			case 2: //code 2 
+				break;
+			case 3: //code 3
+				break;
+			default: //code 
+		}
+______________________________________________________________________________________________________
+
+	======================================
+		Lecture 3 dated 07-08-2024
+	======================================
+(absent)
+
+ladder if-else and switch
+
+______________________________________________________________________________________________________
+
+	======================================
+		Lecture 4 dated 08-08-2024
+	======================================
+
+(absent)
+some prev tasks.
+
+______________________________________________________________________________________________________
+
+	======================================
+		Lecture 5 dated 09-08-2024
+	======================================
+
+(absent)
+what is loop and while loop
+
+`Loop Control:- If you ahave a block of code which you want to execute repeatedly up to given condition is true, then you can use a loop control. In java, there are four types of loop controls available.
+1.while loop			<- while is a keyword which works as a loop counter.
+2. for loop
+3. do-while loop
+4. for each loop
+__________________________________________________________________________________________________________
+
+	======================================
+		Lecture 6 dated 10-08-2024
+	======================================
+
+
+while loop
+	initialization of loop counter;	
+	while(condition)
+	{
+	//code
+	updation of loop counter;
+	}
+
+for  loop
+	working of for loop is same as while loop but syntax is different
+	for(initialization;condition;updation)
+	{
+	//code
+	}
+
+do-while loop
+	do-while is a loop control in which condition is tested after execution of code. So do-while loop is called exit control loop.
+
+	Initialization of loop counter;
+	do{
+	//code;
+	updation of loop counter;
+	}while(condition);
+
+_____________________________________________________________________________________________________________
+
+	======================================
+		Lecture 7 dated 12-08-2024
+	======================================
+
+Array:- Array is a collection of similar data types. That means an array can store multiple values of similar data types. 
+
+Declaration of Array in java:- 
+
+Syntax-
+	datatype [] arrayname=new datatype[size];
+
+Eg- int [] arr=new int[10];
+The above array can store ten numbers.
+
+Initialization of array:-
+int [] arr={10,20,30,40,50};
+arr[0]=10;
+arr[1]=20;
+arr[2]=30;
+arr[3]=40;
+arr[4]=50;
+
+Memory representation of array
+
+-----------------------------------
+Input from user for an array:-
+
+int[] list= new int[5];
+Scanner sc=new Scanner(System.in);
+int i;
+System.out.println("Enter 5 numbers");
+for(i=0; i<5; i++) {
+list[i]=sc.nextInt();
+}
+-----------------------------------------
+
+Sorting of Array
+
+Arrays.sort(Arrayname);		<- Arrays.sort in java.util package
+
+_________________________________________________________________________________
+
+	======================================
+		Lecture 8 dated 13-08-2024
+	======================================
+
+String:- String is a sequence of charcters. In java string is a class. The object of string class stores sequence of characters.
+
+Scanner sc=new Scanner(System.in);
+String name=sc.nextLine();
+
+-----------------------------------------------
+
+toUpperCase()		<- toUpperCase method of string class converts string into uppercase.
+toLowerCase()		<- toLowerCase method of string class converts string into lowercase.
+length()		<- length method of string class is used to find length of given string.
+equals()		<- equals method of string class compares two string for equality. This method returns boolean value.
+equalsIgnoreCase()	<- equalsIgnoreCase method of string class compares two strings for equaltity. This method avoids case senstivity.
+replace()		<- replace method of string class replaces one string with another string in given string.
+			eg- sen="he is a good boy.";
+				sen.replace("good","sincere"); -> He is a sincere boy.
+split()			<- split method of string class split string into substrings. This method returns array of strings.
+			eg- sen="He is a good boy.";
+				string [] words=sen.split(" ");
+			words[0]=He	
+			words[1]=is
+			words[2]=a
+			words[3]=good
+			words[4]=boy
+
+charAt()		<- charAt method of string class find character at specified location.
+
+
+_________________________________________________________________________________
+
+	======================================
+		Lecture 9 dated 14-08-2024
+	======================================
+
+prev tasks done in class
+
+_________________________________________________________________________________
+
+	======================================
+		Lecture 10 dated 15-08-2024
+	======================================
+
+Revision
+
+_________________________________________________________________________________
+
+	======================================
+		Lecture 11 dated 16-08-2024
+	======================================
+
+Operators are symbols which are used to perform operation on operands.
+
+Arithmetic operators
+	+ 	Addition			c=a+b
+	-	Substraction			c=a-b
+	*	Multiplication			c=a*b
+	/ 	Division			c=a/b
+	%	Modulo(Remainder Collector)	c=a%b
+
+Relational Operator 		Relational Operators specifies relation between two entities.
+	>	Greater than			a>b
+	<	Lesser than			a<b
+	>=	Greater than or equal to	a>=b
+	<=	Lesser than or equal to		a<=b
+	==	equality			a==b
+	!=	not equal			a!=b
+
+Asignment Operator
+	= 	equals				a=b		
+	
+Increment Operator	Increment operator increase value of a variable by 1
+	++	adds one to the variable	a++
+
+Decrement Operator	Decrement operator decrease value of a variable by 1
+	--	minus one to the variable	a--
+
+Logical Operator	Logical operator are used to combine two or more conditions.
+	&&	AND
+	||	OR
+	!	NOT
+
+________________________________________________________________________________________________
+
+	======================================
+		Lecture 13 dated 18-08-2024
+	======================================
+
+Thread.sleep(milliseconds); This method generates delay.
+
+________________________________________________________________________________________________
+
+	======================================
+		Lecture 15 dated 21-08-2024
+	======================================
+
+Method:- Method is a named block of code which perform specific task.
+Why Method??
+If you have a block of code which is required at different locations of program. Then you can create a method of that code and call it from desired locations. 
+
+How to create method in java?
+
+Syntax:- 	
+	<modifier> <returntype> <method_name> (parameters) {
+		//code;
+	}
+
+Eg:- 	public int sum(int x, int y) {
+		return (x+y);
+	}
+.
+-------------------------
+Types of Method in java
+-------------------------
+
+In java programming language there are two types of method.
+
+1. Static method	<- These are those methods which are created by using 'static' modifier. These methods are called class methods.There is no need of object to 			   call static method.
+2. Non-static method	<- These are created without using 'static' keyword. Non-Static method can be called by using object. 
+
+Note:- You can create user defined method inside class and outside of main method.
+
+________________________________________________________________________________________________
+
+	======================================
+		Lecture 16 dated 22-08-2024
+	======================================
+
+OOPS:- 
+-----
+OOPS stand for Object Oriented Programming System. It is a mechanism of software development. The OOPS has 4 pillars.
+1. Abstraction
+2. Encapsulation
+3. Inheritance
+4. Polymorphism
+
+
+Abstraction:-	Abstraction is a mechanism to show only essential funcationalities and hide all other functionalities of an object.
+Encapsulation:- Encapsulation is a mechanism to wrap properties and functionalities in a single unit and that single unit is called object.
+Inheritance:-	Inheritance is a feature of object oriented programming. In Inheritance you can create a new product by using existing product.
+Polymorphism:-	The term polymorphism means one thing many forms.
+
+Any programming language which follows these four concepts is known as object oriented programming language. 
+
+--------------------------------------
+
+Class :- Class is a blueprint of object. Class is collection of variable and methods.
+	Class is created by using 'class' keyword followed by classname. The body of class is enclosed within braces{}. 
+
+class class_name {
+//Variables and methods
+}
+
+___________________________________________________________________________________________________________________________
+
+	======================================
+		Lecture 17 dated 24-08-2024
+	======================================
+
+Constructor:- Constructure is a special method which is used to initialize variables.
+Constructor has following properties:-
+1. Constructor name is same as class name.
+2. Constructor does not return any value.
+3. Constructor call automatically as soon as object is created.
+
+Note:- If you not create any constructor in class, then java compiler create a default constructor in class.
+
+this:- 'this' is a keyword,which denotes the object of current class. 
+
+
+Inheritance:-	
+-------------
+Inheritance is a feature of object oriented programming. In Inheritance you can create a new class using existing class. The existing class is called base class /super class or parent class and the new created class is called derived/sub/child class.
+	The concept of inheritance is also called 'Reusability'.
+
+	A 	------>		B
+	Base class	derived class
+	class A {
+	//variables and methods
+	}
+	class B extends A{
+	//variables and methods
+	}
+
+Types of Inheritance Supported in java:
+	In Java Programming language there are three types of inheritance are supported. 
+	1. Single Inheritance
+	2. Hierarchical Inheritance
+	3. Multi-level Inheritance
+
+Single Inheritance :-		In single inheritance there is a single base class and single derived class.
+				A 	------>		B
+				Base class	derived class
+				class A {
+				//code
+				}
+				class B extends A{
+				//code
+				}
+				
+Hierarchical Inheritance:- 	In hierarchical Inheritance there is a single base class and mutltiple derived classes.
+				A 	------->	B
+					`------>	C
+				Base class	derived classes
+				class A {
+				//code
+				}
+				class B extends A{
+				//code
+				}
+				class C extends A{
+				//code
+				}
+
+________________________________________________________________________________________________
+
+	======================================
+		Lecture 18 dated 25-08-2024
+	======================================
+
+
+Multi-level Inheritance:-	
+				A 	------->	B	------->	C	
+				Base Class	Derived Class		Derived Class	
+						/Base Class		
+
+				class A {
+				//code
+				}
+				class B extends A{
+				//code
+				}
+				class C extends B{
+				//code
+				}
+
+Polymorphisn:- THe term polymorphism means one thing many forms. In java there are two types of polymorphism.
+
+1. Compile time Polymorphism(Method Overloading)
+2. Run time Polymorphism(Method Overriding)
+
+Method Overloading:  In java you can create multiple methods with same name in same class but their parameters should be different. Based on method parameters it is decided at compilation time that which method call from where. This concept is called method overloading.
+
+1. Number of parameter can be different.
+2. Types of parameter can be different
+
+Ex:-	class figure {
+		public int area(int s) {
+			retturn s*s;
+		}
+		public int area(int l,int b) {
+			return l*b;
+		}
+	}
+
+Method Overriding:- Re-writing of base class method into derived class is called method overriding.
+	
+Ex-	class Connection {
+		public void connect() {
+			//code to connect oracle database
+		}
+	}
+	class NewConnection extends Connection {
+		public void connect() {
+			//code to connect mysql database
+		}
+	}
+
+________________________________________________________________________________________________
+
+	======================================
+		Lecture 19 dated 26-08-2024
+	======================================
+
+Exception Handling in Java
+ 
+Exception:- The term Exception means abnormal terminantion. When exception is occured the program is terminated abnormally and the rest of code is not executed. In java programming language there are three types of exceptions:-
+	
+1. Checked Exception
+2. Unchecked Exception
+3. Errors
+
+Checked Exception:-	Checked Exceptions are those exceptioms which are occured at compilatiom time and intimated by compiler. 
+			Ex- InterruptedException. SQLException, ClassNotFoundException, IOException, ... etc.
+
+Unchecked Exception:-	Unchecked Exceptions are those exceptions which are occured at run time. These exceptions are generated by either programmer mistake or user 			mistake.
+			Ex- ArithmeticException, InputMismatchException, NullPointerException, ArrayIndexOutOfBoundException, ... etc.
+
+Errors:-		Errors are occued due to lack of system resources. 
+			E.g.- IOError, AwtError, HeapMemoryFullError, ... etc.
+
+=========================================================
+
+Exception Handling in Java:- Exception Handling is a mechanism to handle excpetion to achieve normal execution of program. For exception handling you can use try catch,finally,throw and throws keyword. In java you can handle exception in two ways:-
+
+1. By using try catch blocks.
+2. By using throws keyword.
+
+Exception Handling By using try catch blocks.
+
+try {
+//Code which you want to protect
+}
+catch(ExceptionType variable) {
+//Code which is used to handle Exception
+}
+finally //Optional
+{
+
+}
+
+Note:- For a single try block there can be multiple catch blocks.
+
+===========================================================
+
+Taking input from user by using object of BufferedReader class
+
+BufferedReader class is avaibale in java.io package
+
+import java.io.*;
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+
+
+String name=br.readLine();			<-string
+int a=Integer.parseInt(br.readLine());		<-integer
+float b=Float.parseFloat(br.readLine());	<- float
+double c=Double.parseDouble(br.readLine());	<-double
+long c=Long.parseLong(br.readLine());		<-Long
+
+
+________________________________________________________________________________________________
+
+	======================================
+		Lecture 21 dated 28-08-2024
+	======================================
+
+Interface:- Interface is container of abstract methods and public static final variables. Interface is used to achieve abstraction.
+	    Interface is created by using 'interface' keyword followed by interface name.
+
+Syntax:- 
+interface interface_name
+{
+//declare abstract methods
+}
+
+E.g. 
+interface MyInterface {
+	void m1(); //public abstract void m1();
+	void m2(); //public abstract void m2();
+}
+
+Why to use Interface, Abstract Class, Class- A discussion
+----------------------------------------------------------
+
+Interface:-	Interface contain abstract methods only. If you have requirements but you don't know about its implementation, then you can use interface. 
+	---> An Interface can extend another interface.
+	---> We can't create object of interface.
+	
+Abstract Class:- Abstract Class is a class which is created by using abstract keyword. Abstract class contain abstract method and implemented method both. If you have 			requirements, you know implementation but not complete implementation, then you can use abstract class.
+	---> Abstract Class can implement interface.
+	---> Abstract Class can extend another abstract class.
+	---> You can't create object of abstract class.
+
+Class:-		Class is a collection of implemented methods only. If you have requirements and you know complete implementation then you can use class because class 		contain implemented method only.
+	---> Class can implement an interface.
+	---> Class can extend abstract class.
+	---> Class can extend another class.
+	---> You can create object of class only.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

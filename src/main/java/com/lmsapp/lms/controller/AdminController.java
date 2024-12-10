@@ -55,11 +55,11 @@ public class AdminController {
       try {
          response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
          if (session.getAttribute("adminid") != null) {
-            long stdcount = this.srepo.count();
+            long stdcount = srepo.count();
             model.addAttribute("stdcount", stdcount);
-            model.addAttribute("enqcount", this.erepo.count());
-            model.addAttribute("rescount", this.resrepo.count());
-            model.addAttribute("matcount", this.mrepo.count());
+            model.addAttribute("enqcount", erepo.count());
+            model.addAttribute("rescount", resrepo.count());
+            model.addAttribute("matcount", mrepo.count());
             List<News> news = this.nrepo.findAll();
             Collections.reverse(news);
             model.addAttribute("news", news);

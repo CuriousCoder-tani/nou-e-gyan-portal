@@ -6,74 +6,65 @@
 </head>
 
 <body>
-	<section >
-		<div class="row scrollable-row">
-			<div class="col-sm-7 mx-auto" >
-				<!-- Loop through questions -->
-				<div th:each="question : ${questions}" class="question-card shadow rounded-3">
-					<div class="question-header">
-						<h2 class="question-title " th:text="${question.question}"></h2>
+	<section class="row scrollable-row">
+		<div class="col-sm-7 mx-auto">
+			<!-- Loop through questions -->
+			<div th:each="question : ${questions}" class="question-card shadow rounded-3">
+				<div class="question-header">
+					<h2 class="question-title " th:text="${question.question}"></h2>
+					<div class="d-flex justify-content-between meta-info">
+						<span><i class="fas fa-user me-2"></i> <span th:text="${question.postedby}"></span></span>
+						<span><i class="fas fa-calendar me-2"></i> <span th:text="${question.posteddate}"></span></span>
+					</div>
+				</div>
+
+				<div class="answer-section">
+					<h3 class="h5 mb-3">Answers:
+					</h3>
+					<div class="answer" th:each="answer : ${answers}" th:if="${answer.question.qid == question.qid}">
+						<p th:text="${answer.answer}"></p>
 						<div class="d-flex justify-content-between meta-info">
-							<span><i class="fas fa-user me-2"></i> <span th:text="${question.postedby}"></span></span>
+							<span><i class="fas fa-user me-2"></i><span th:text="${answer.answeredby}"></span></span>
 							<span><i class="fas fa-calendar me-2"></i> <span
-									th:text="${question.posteddate}"></span></span>
+									th:text="${answer.posteddate}"></span></span>
 						</div>
 					</div>
 
-					<div class="answer-section">
-						<h3 class="h5 mb-3">Answers:
-						</h3>
-						<div class="answer" th:each="answer : ${answers}" th:if="${answer.qid == question.qid}">
-							<p th:text="${answer.answer}"></p>
-							<div class="d-flex justify-content-between meta-info">
-								<span><i class="fas fa-user me-2"></i><span
-										th:text="${answer.answeredby}"></span></span>
-								<span><i class="fas fa-calendar me-2"></i> <span
-										th:text="${answer.posteddate}"></span></span>
+					<!-- Button trigger modal -->
+					<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+						th:data-bs-target="'#exampleModal' + ${question.qid}">
+						Give Answer
+					</button>
+
+					<!-- Modal -->
+					<div class="modal fade" th:id="'exampleModal' + ${question.qid}" tabindex="-1"
+						aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered">
+							<div class="modal-content">
+								<form class="form-group" th:object="${dto}" th:action="@{/student/showanswer}"
+									method="post">
+									<div class="modal-header">
+										<h2 class="modal-title fs-5" id="exampleModalLabel">Give Answer</h2>
+										<button type="button" class="btn-close" data-bs-dismiss="modal"
+											aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										<div class="mb-3">
+											<input type="hidden" name="qid" th:value="${question.qid}" />
+											<textarea class="form-control" th:field="${dto.answer}" rows="3"
+												placeholder="Write your answer here..." required></textarea>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">Close</button>
+										<button type="submit" class="btn btn-primary">Submit</button>
+									</div>
+								</form>
 							</div>
 						</div>
-
-
-
-
-						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-							th:data-bs-target="'#exampleModal' + ${question.qid}">
-							Give Answer
-						</button>
-
-						<!-- Modal -->
-						<div class="modal fade" th:id="'exampleModal' + ${question.qid}" tabindex="-1"
-							aria-labelledby="exampleModalLabel" aria-hidden="true">
-							<div class="modal-dialog modal-dialog-centered">
-								<div class="modal-content">
-									<form class="form-group" th:object="${dto}" th:action="@{/student/showanswer}"
-										method="post">
-										<div class="modal-header">
-											<h2 class="modal-title fs-5" id="exampleModalLabel">Give Answer</h2>
-											<button type="button" class="btn-close" data-bs-dismiss="modal"
-												aria-label="Close"></button>
-										</div>
-										<div class="modal-body">
-											<div class="mb-3">
-												<!-- Bind the qid to the DTO -->
-												<input type="hidden" name="qid" th:value="${question.qid}" />
-												<textarea class="form-control" th:field="${dto.answer}" rows="3"
-													placeholder="Write your answer here..." required></textarea>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-secondary"
-												data-bs-dismiss="modal">Close</button>
-											<button type="submit" class="btn btn-primary">Submit</button>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-
 					</div>
-				</div> <!-- Close question loop div -->
+				</div>
 			</div>
 		</div>
 	</section>

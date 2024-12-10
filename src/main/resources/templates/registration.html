@@ -17,19 +17,11 @@
 						<div class="row g-3">
 							<div class="col-sm-12">
 								<label for="rollno" class="form-label">Roll Number</label>
-								<input type="number" th:field="${dto.rollno}" class="form-control" id="rollno" required>
+								<input type="text" th:field="${dto.rollno}" class="form-control" id="rollno" required>
 							</div>
 							<div class="col-sm-12">
 								<label for="Name" class="form-label">Name</label>
 								<input type="text" th:field="${dto.name}" class="form-control" id="name" required>
-							</div>
-							<div class="col-sm-6">
-								<label for="fname" class="form-label">Father's Name</label>
-								<input type="text" th:field="${dto.fname}" class="form-control" id="fname" required>
-							</div>
-							<div class="col-sm-6">
-								<label for="mname" class="form-label">Mother's Name</label>
-								<input type="text" th:field="${dto.mname}" class="form-control" id="mname" required>
 							</div>
 							<div class="col-sm-12">
 								<label for="gender" class="form-label">Gender</label>
@@ -89,9 +81,13 @@
 									required>
 							</div>
 							<div class="col-sm-12">
+								<label for="confirmpassword" class="form-label">Confirm Password?</label>
+								<input type="password" class="form-control" id="confirmpassword" required>
+							</div>
+							<div class="col-sm-12">
 								<button type="submit" class="btn btn-primary w-100">Register</button>
 							</div>
-							<hr/>
+							<hr />
 							<div class="col-sm-12 text-center">
 								<a href="/studentlogin">Return to Login Page</a>
 							</div>
@@ -99,6 +95,66 @@
 					</form>
 				</div>
 			</div>
+			<script>
+				document.addEventListener('DOMContentLoaded', () => {
+					const form = document.querySelector('form');
+
+					form.addEventListener('submit', (event) => {
+						let isValid = true;
+						let errorMessage = '';
+
+						// Name Validation
+						const name = document.getElementById('name').value.trim();
+						if (name === '') {
+							isValid = false;
+							errorMessage += 'Name is required.\n';
+						} else if (!/^[a-zA-Z ]{3,15}$/.test(name)) {
+							isValid = false;
+							errorMessage += 'Name can only contain letters and spaces.\n';
+						}
+
+						// Contact Number Validation
+						const contactNo = document.getElementById('contactno').value.trim();
+						if (contactNo === '') {
+							isValid = false;
+							errorMessage += 'Contact Number is required.\n';
+						} else if (!/^[0-9]{10}$/.test(contactNo)) {
+							isValid = false;
+							errorMessage += 'Contact Number must be 10 digits.\n';
+						}
+
+						// Email Validation
+						const email = document.getElementById('emailaddress').value.trim();
+						if (email === '') {
+							isValid = false;
+							errorMessage += 'Email Address is required.\n';
+						} else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,3}$/.test(email)) {
+							isValid = false;
+							errorMessage += 'Invalid Email Address format.\n';
+						}
+
+						// Password Validation
+						const password = document.getElementById('password').value;
+						const confirmPassword = document.getElementById('confirmpassword').value;
+						if (password === '') {
+							isValid = false;
+							errorMessage += 'Password is required.\n';
+						} else if (password.length < 6) {
+							isValid = false;
+							errorMessage += 'Password must be at least 6 characters long.\n';
+						} else if (password !== confirmPassword) {
+							isValid = false;
+							errorMessage += 'Password and Confirm Password do not match.\n';
+						}
+
+						if (!isValid) {
+							alert(errorMessage);
+							event.preventDefault();
+						}
+					});
+				});
+
+			</script>
 		</div>
 	</section>
 </body>

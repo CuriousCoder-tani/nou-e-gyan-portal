@@ -20,9 +20,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.InputStream;
-import java.nio.file.CopyOption;
 import java.nio.file.Files;
-import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -158,8 +156,8 @@ public class StudentController {
          response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
          if (session.getAttribute("studentid") != null) {
             model.addAttribute("dto", new AnswerDto());
-            Iterable<Question> questions = this.qrepo.findAll();
-            List<Answer> answers = this.arepo.findAll();
+            List<Question> questions = this.qrepo.findAllByOrderByPosteddateDesc();
+            List<Answer> answers = this.arepo.findAllByOrderByPosteddateDesc();
             model.addAttribute("questions", questions);
             model.addAttribute("answers", answers);
             return "student/giveanswer";
@@ -178,7 +176,7 @@ public class StudentController {
          if (session.getAttribute("studentid") != null) {
             StudentInfo student = (StudentInfo)this.sturepo.getById((Integer)session.getAttribute("studentid"));
             Answer answer = new Answer();
-            answer.setQid(dto.getQid());
+            answer.setQuestion(dto.getQid());
             answer.setAnswer(dto.getAnswer());
             answer.setAnsweredby(student.getName());
             String formattedDate = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(new Date());

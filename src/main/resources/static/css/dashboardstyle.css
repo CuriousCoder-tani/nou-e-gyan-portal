@@ -2,7 +2,7 @@
 	height: 98vh;
 }
 
-.scrollable-row {
+.scrollable-row { 
 	max-height: 96vh;
 	overflow-y: auto;
 }

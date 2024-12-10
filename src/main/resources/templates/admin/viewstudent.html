@@ -12,8 +12,6 @@
                 <tr class="thead-dark">
                     <th onclick="sortTable(0)">Enrollment Number</th>
                     <th onclick="sortTable(1)">Name</th>
-                    <th onclick="sortTable(2)">Father Name</th>
-                    <th onclick="sortTable(3)">Mother Name</th>
                     <th onclick="sortTable(4)">Gender</th>
                     <th onclick="sortTable(5)">Contact No</th>
                     <th onclick="sortTable(6)">Email Address</th>
@@ -27,8 +25,6 @@
                 <tr th:each="s:${stu}" class="shadow-sm mt-2">
                     <td th:text="${s.rollno}"></td>
                     <td th:text="${s.name}"></td>
-                    <td th:text="${s.fname}"></td>
-                    <td th:text="${s.mname}"></td>
                     <td th:text="${s.gender}"></td>
                     <td th:text="${s.contactno}"></td>
                     <td th:text="${s.emailaddress}"></td>

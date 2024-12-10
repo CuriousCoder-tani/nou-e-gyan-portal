@@ -6,8 +6,6 @@ public class StudentDto {
 
 	private int rollno;
 	private String name;
-	private String fname;
-	private String mname;
 	private String gender;
 	private String address;
 	private String program;
@@ -36,18 +34,6 @@ public class StudentDto {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public String getFname() {
-		return fname;
-	}
-	public void setFname(String fname) {
-		this.fname = fname;
-	}
-	public String getMname() {
-		return mname;
-	}
-	public void setMname(String mname) {
-		this.mname = mname;
 	}
 	public String getGender() {
 		return gender;

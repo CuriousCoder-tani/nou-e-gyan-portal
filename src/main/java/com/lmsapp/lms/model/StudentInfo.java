@@ -16,12 +16,6 @@ public class StudentInfo {
 	@Column(length=50, nullable=false)
 	private String name;
 	
-	@Column(length=50, nullable=false)
-	private String fname;
-	
-	@Column(length=50, nullable=false)
-	private String mname;
-	
 	@Column(length=6, nullable=false)
 	private String gender;
 	
@@ -70,18 +64,6 @@ public class StudentInfo {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public String getFname() {
-		return fname;
-	}
-	public void setFname(String fname) {
-		this.fname = fname;
-	}
-	public String getMname() {
-		return mname;
-	}
-	public void setMname(String mname) {
-		this.mname = mname;
 	}
 	public String getGender() {
 		return gender;
